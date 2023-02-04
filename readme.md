@@ -4,8 +4,6 @@
 The nantional Travel and Tourism Office (NTTO) of USA goverment manages the ADIS/I-94 visitor arrivals program in cooperation with the Department of Homeland Security. 
 The project is to build a data lake for support analytics department of US and information about demography all over the world. Query information from exracted table from two datasource 
 
-    !!!IMPORTANT: I AM NOT THE MAN WHO USE DATA TO ANALYSE FOR ANALYSIS THINGS SO WHAT IM DOING HERE IS TO MAKE DATA MAYBE MORE RELAVANT TO USE!.
-
 ### About Dataset
 1. I94Immigration : This data was created by US National Travel and Tourism Office. [This](https://travel.trade.gov/research/reports/i94/historical/2016.html) is where data come from.
 2.  U.S City Demographic Data: This data comes from OpenSoft. You can read more about it [here](https://public.opendatasoft.com/explore/dataset/us-cities-demographics/export/).
