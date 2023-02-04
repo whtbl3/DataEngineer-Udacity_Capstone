@@ -2,13 +2,14 @@
 
 ## Project Summary
 The nantional Travel and Tourism Office (NTTO) of USA goverment manages the ADIS/I-94 visitor arrivals program in cooperation with the Department of Homeland Security. 
-To find the insight of the data I gather, data analysist can use the data to do that, I have to perform some operation to clean data and ingest data to the place where they can use it. By doing that I extract the data from the source, transform and load to S3
+The project is to build a data lake for support analytics department of US and information about demography all over the world. Query information from exracted table from two datasource 
+
+    !!!IMPORTANT: I AM NOT THE MAN WHO USE DATA TO ANALYSE FOR ANALYSIS THINGS SO WHAT IM DOING HERE IS TO MAKE DATA MAYBE MORE RELAVANT TO USE!.
 
 ### About Dataset
 1. I94Immigration : This data was created by US National Travel and Tourism Office. [This](https://travel.trade.gov/research/reports/i94/historical/2016.html) is where data come from.
-2. World Temperature Data: This data came from Kaggle. You can read more about it [here](https://www.kaggle.com/berkeleyearth/climate-change-earth-surface-temperature-data).
-3.  U.S City Demographic Data: This data comes from OpenSoft. You can read more about it [here](https://public.opendatasoft.com/explore/dataset/us-cities-demographics/export/).
-4. Airport code: This is a simple table of airport codes and corresponding cities. It comes from [here](https://datahub.io/core/airport-codes#data)
+2.  U.S City Demographic Data: This data comes from OpenSoft. You can read more about it [here](https://public.opendatasoft.com/explore/dataset/us-cities-demographics/export/).
+
 
 ### Gathering data
 The data go with code along the way so I create them for easy processing data
@@ -18,10 +19,11 @@ The data go with code along the way so I create them for easy processing data
 - i94cntyl: Code for countries
 
 ### Data Model
- Using start schema:
+ Using star schema:
  ![Start schema](img/star_schema.png)
+ I use start schema because it can used for bussiness to easy to understand and analyze, Not sure that will be more advanage to another schema, cause I am not an analysist.
 
-Include 1 fact and 5 dimenstion table:
+Include 1 fact and 6 dimenstion table:
 - Fact table: human_migration
 ![Table dictionary - human_migration](img/fact_table_dictionary.png)
 - Dimension table:
@@ -44,10 +46,13 @@ Include 1 fact and 5 dimenstion table:
 
 
 ### Technology usage:
-- Apache aiflow
-- Pyspark
-- Amazon S3
-- Amazon Redshift
+- Apache airflow: Using apache airflow help to gather data monthly without we have to do it by ourself.
+- Pyspark: To processing large dataset, we could use spark for worse scenario if data is going to bigger
+- Amazon S3: Store raw data and processing data, loading to relational dastabase
+- Amazon Redshift: A data warehouse soluditon Redshift database could help us reduce waste time to wait for the result of the query.
+
+### Data update frequently
+- The immigration pretty big, then we should update monthly and all data have linking togther then demography should be updated too.
 
 ### Future Design Consideration
 - If the data get increased by 100x:
@@ -61,8 +66,5 @@ Include 1 fact and 5 dimenstion table:
 ### Result:
 ![airflow running](img/airflow.png)
 ![airflow granttime](img/airflow_2.png)
-
-
-
 
 
